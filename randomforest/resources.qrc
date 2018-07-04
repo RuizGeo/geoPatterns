@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/assess_rfc" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>
