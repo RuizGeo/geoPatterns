@@ -348,11 +348,21 @@ class Sampling:
             
             else:
                 pass
-            
+            #Get EPSG
+            cod_epsg= QgsRasterLayer(rasters_files[0], 'raster').crs().authid()
             #ASsess rasters file exist
             for ras in rasters_files:
                 raster = QgsRasterLayer(ras, 'raster')
-                if not raster.isValid():
+                cod_epsg1 = raster.crs().authid()
+                
+                if not cod_epsg == cod_epsg1:
+                    msg = QMessageBox()
+                    msg.setIcon(QMessageBox.Information)
+                    msg.setText("Different SRC: "+cod_epsg+' : '+cod_epsg1+' = '+ras)
+                    msg.setWindowTitle("Info")
+                    msg.exec_() 
+                    return 0                    
+                elif not raster.isValid():
                     msg = QMessageBox()
                     msg.setIcon(QMessageBox.Information)
                     msg.setText("Error read layer: "+ras)
