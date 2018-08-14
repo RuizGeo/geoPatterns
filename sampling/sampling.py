@@ -389,7 +389,7 @@ class Sampling:
             count=1
             #set value progressBar
             self.dlg.ui.progressBar.setValue(1.0)
-            totale = len(vectors_files)+len( rasters_files)
+            totale = len(vectors_files)
             #Loop about vectors_files
             for vec in vectors_files:
                 #Set lineEdi Out
@@ -406,8 +406,8 @@ class Sampling:
                     processing.run('qgis:zonalstatistics',parameters)
                     #Set lineEdi Out
                     self.dlg.ui.textEditOut.append(column)
-                    #set value progressBar
-                    self.dlg.ui.progressBar.setValue((float(count)/totale)*100)
-                    count+=1
+                #set value progressBar
+                self.dlg.ui.progressBar.setValue((float(count)/totale)*100)
+                count+=1
             #set 100 progressaBar
             self.dlg.ui.progressBar.setValue(100)
