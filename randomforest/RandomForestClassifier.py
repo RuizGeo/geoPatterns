@@ -53,7 +53,15 @@ def RandomForestClassifier(path_train,segs_path,\
         
         #Get features and remove geometry and id_seg
         dfs=dfs.drop(columns=['geometry','id_seg'])
+        #Get columns names (Fields)
         features=dfs.columns
+        try:
+            dfjt[features]
+            dfjv[features]
+        except:
+            print ("Error features names: ",features)
+            return 'features'
+            
         #acurcia
         acuracia=0    
         best_parameters=[]        
