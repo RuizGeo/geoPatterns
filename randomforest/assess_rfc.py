@@ -555,10 +555,19 @@ class AssessRFC:
                 importLibs()
                 print('Run Random Forest Classifier')
                 #Run Assess RFC
-                RandomForestClassifier(path_train,dataset_path,\
+                run_rf=RandomForestClassifier(path_train,dataset_path,\
                         path_val,start_est,end_est,step_est,\
                         start_dp,end_dp,step_dp,field_class_train,\
                         field_class_val,criterion_split,path_assess_file,state_checkBox_Class,classification_path)
+                
+                #Evaluate names features (fields)
+                if run_rf =='features':
+                    msg = QMessageBox()
+                    msg.setIcon(QMessageBox.Information)
+                    msg.setText("Error names features (fields)")
+                    msg.setWindowTitle("Info")
+                    msg.exec_() 
+                    return 0                     
                 print('Finish')
                 #progressbar                
                 self.dlg.ui.progressBar.setValue(100)
