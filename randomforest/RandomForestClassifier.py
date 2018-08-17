@@ -52,7 +52,7 @@ def RandomForestClassifier(path_train,segs_path,\
         dfjt=gpd.sjoin(dft,dfs,how="inner", op='intersects')
         
         #Get features and remove geometry and id_seg
-        dfs=dfs.drop(columns=['geometry','id_seg'])
+        dfs.drop(['geometry','id_seg'],axis=1,inplace =True)
         #Get columns names (Fields)
         features=dfs.columns
         try:
