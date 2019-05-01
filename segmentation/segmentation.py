@@ -426,7 +426,7 @@ class Segmentation:
                                 ini = time.time()
                                 #set parameters i.segment
                                 parameters = {"input":path_input_raster,"threshold":float(sim),\
-                                              "method":0,"similarity":meth_sim,"minsize":mcell,"memory":use_memory,\
+                                              "method":0,"similarity":float(meth_sim),"minsize":float(mcell),"memory":float(use_memory),\
                                               "iterations":iteratios,"seeds":self.dict_layers[input_seeds],"bounds":self.dict_layers[input_bounding],\
                                               "GRASS_REGION_PARAMETER":"%f,%f,%f,%f" % (xmin, xmax, ymin, ymax),\
                                               "GRASS_REGION_CELLSIZE_PARAMETER":size_cell,\
